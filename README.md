@@ -19,6 +19,27 @@ The base version of this dataset includes:
 Users are encouraged to generate customized versions of the dataset with more images per category, depending on specific requirements. The repository includes Python scripts to facilitate this process.
 
 # Usage
+
+## :wink: 
+Note that the Tiny COCO dataset is a subset of the original COCO dataset. To use the Tiny COCO dataset, you must first download the full COCO2017 dataset from the [official website](http://images.cocodataset.org/zips/train2017.zip). 
+
+The downloaded dataset should be structured as follows:
+```
+train2017/
+    000000000009.jpg
+    000000000025.jpg
+    ...
+val2017/
+    000000000139.jpg
+    000000000285.jpg
+    ...
+annotations/
+    instances_train2017.json
+    instances_val2017.json
+    ...
+```
+
+
 ## Clone this repository
 ```
 git clone https://github.com/zzowenzz/COCO_Tiny.git
@@ -37,6 +58,14 @@ python make_dataset.py \\
     --coco_path [path to the original MSCOCO2017 dataset] \\
     --mini_path data/COCO_Tiny [path to save the Tiny COCO dataset] \\
     --num_img [number of images per category] 
+```
+
+For example, to generate a Tiny COCO dataset with 1 image per category:
+```
+python make_dataset.py \\
+    --coco_path [path to the original MSCOCO2017 dataset] \\
+    --mini_path data/COCO_Tiny [path to save the Tiny COCO dataset] \\
+    --num_img 1
 ```
 
 # Contributions
