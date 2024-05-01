@@ -1,5 +1,5 @@
 # Tiny MSCOCO2017 Dataset
-Welcome to the Tiny COCO Dataset repository! This project aims to provide a simplified and fast-to-use version of the extensive COCO dataset for quick debugging and development of image processing models. The base version of this dataset contains exactly **one image per category**, making it lightweight and perfect for testing algorithms quickly.
+Welcome to the Tiny COCO Dataset repository :blush:. This project aims to provide a simplified and fast-to-use version of the extensive COCO dataset for quick debugging and development of image processing models. The base version of this dataset contains exactly **one image per category**, making it lightweight and perfect for testing algorithms quickly.
 
 # About COCO
 The [COCO](https://cocodataset.org/#download) (Common Objects in Context) dataset is a large-scale object detection, segmentation, and captioning dataset. COCO is widely used in the machine learning community for benchmarking state-of-the-art models.
