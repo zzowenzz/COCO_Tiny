@@ -20,8 +20,7 @@ Users are encouraged to generate customized versions of the dataset with more im
 
 # Usage
 
-## :wink: 
-Note that the Tiny COCO dataset is a subset of the original COCO dataset. To use the Tiny COCO dataset, you must first download the full COCO2017 dataset from the [official website](http://images.cocodataset.org/zips/train2017.zip). 
+:wink: Note that the Tiny COCO dataset is a subset of the original COCO dataset. To use the Tiny COCO dataset, you must first download the full COCO2017 dataset from the [official website](http://images.cocodataset.org/zips/train2017.zip). 
 
 The downloaded dataset should be structured as follows:
 ```
