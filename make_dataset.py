@@ -33,7 +33,6 @@ def setup_mini_coco(coco_path, mini_path, data_types, num_img):
         # Get all categories and select specified number of images per category
         categories = coco.loadCats(coco.getCatIds())
         cat_ids = [cat['id'] for cat in categories]
-        img_counter = 1  # To create new image ids
         
         for cat_id in cat_ids:
             img_ids = coco.getImgIds(catIds=[cat_id])
@@ -41,9 +40,8 @@ def setup_mini_coco(coco_path, mini_path, data_types, num_img):
 
             for selected_img in selected_imgs:
                 images_used.add(selected_img)
-                img_info = coco.loadImgs(selected_img)[0]
-                img_info['id'] = img_counter
-                new_ann_file['images'].append(img_info)
+                img_info = coco.loadImgs([selected_img])[0]  # Correctly fetch image info using list
+                new_ann_file['images'].append(img_info)  # Directly append the original image info
                 
                 # Copy image to mini dataset directory
                 shutil.copy(os.path.join(coco_path, f'{data_type}2017', img_info['file_name']),
@@ -53,10 +51,8 @@ def setup_mini_coco(coco_path, mini_path, data_types, num_img):
                 ann_ids = coco.getAnnIds(imgIds=[selected_img])
                 annotations = coco.loadAnns(ann_ids)
                 for ann in annotations:
-                    ann['image_id'] = img_counter
+                    ann['image_id'] = img_info['id']  # Retain original image ID in annotations
                     new_ann_file['annotations'].append(ann)
-                
-                img_counter += 1  # Increment the counter for new image IDs
 
         # Save the new JSON file
         ann_output_dir = os.path.join(mini_path, 'annotations')
